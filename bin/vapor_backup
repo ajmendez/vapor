@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+
+import vapor
+
+
+def backup():
+    api = vapor.Vapor()
+    api.backup()
+
+
+
+if __name__ == '__main__':
+    backup()
