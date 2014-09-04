@@ -71,7 +71,7 @@ class Vapor(object):
     
     def backup(self, filename=BACKUPFILE):
         with Data(filename) as data:
-            data[0] = [self.user.username]
+            data[0] = [self.user.name, self.user.id, self.user.last_logoff]
             data.insert(1, self.makebackup())
     
     
