@@ -4,6 +4,7 @@ import vapor
 
 
 def backup():
+    '''Backup the full api cache'''
     api = vapor.Vapor()
     api.backup()
 
