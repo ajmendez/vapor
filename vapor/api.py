@@ -4,7 +4,7 @@ import json
 import steamapi
 from datetime import datetime
 from pymendez.auth import auth
-
+from dateutil import parser
 
 BACKUPFILE = os.path.expanduser('~/data/steam/gametime.json')
 
@@ -14,7 +14,7 @@ def date_handler(obj):
  
 def object_hook(obj):
   if 'date' in obj:
-    obj['date'] = dateutil.parser.parse(obj['date']) 
+    obj['date'] = parser.parse(obj['date']) 
   return obj
 
 
