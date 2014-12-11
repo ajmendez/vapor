@@ -25,10 +25,12 @@ class Data(object):
         self.fcn = fcn
     
     def __iter__(self):
+        '''Iterate over the data'''
         for item in self.data:
             yield item
     
     def insert(self, index, item):
+      '''Possibly wrap this better'''
       self.data.insert(index, item)
     
     def __getitem__(self, key):
@@ -70,16 +72,20 @@ class Vapor(object):
         self.user = steamapi.user.SteamUser(userurl=username)
     
     def games(self):
+        '''Iterate over game:
+        yields id, name, and total playtime'''
         for game in self.user.games:
             yield game.id, game.name, game.playtime_forever
     
     
     def makebackup(self):
+        '''Build a backup dict'''
         out = dict(date=datetime.now())
         out['games'] = {ident:[name,time] for ident,name,time in self.games()}
         return out
     
     def backup(self, filename=BACKUPFILE):
+        '''Save the backup dict made from makebackup to the data.'''
         with Data(filename) as data:
             item = [self.user.name, self.user.id, self.user.last_logoff]
             try:
