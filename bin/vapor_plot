@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+'''
+Build a plot of the game play time
+'''
+import pylab
+
+def gametime():
+	pass
+
+
+
+if __name__ == '__main__':
+	gametime()
+	pylab.show()
