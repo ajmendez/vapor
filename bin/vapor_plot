@@ -3,10 +3,20 @@
 Build a plot of the game play time
 '''
 import pylab
+import vapor
+
 
 def gametime():
-	pass
-
+    '''Plot the game time'''
+    data = vapor.Data(vapor.BACKUPFILE)
+    for game in data:
+        print game.keys()
+        break
+    
+    
+    
+    print 'Done!'
+    
 
 
 if __name__ == '__main__':
